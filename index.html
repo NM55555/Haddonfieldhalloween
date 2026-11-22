@@ -15,7 +15,7 @@
       min-height: 78vh; position: relative; display: grid; place-items: center; overflow: hidden;
       text-align: center; padding: 5rem 1.5rem;
       background: linear-gradient(180deg, rgba(10,9,12,.28), rgba(10,9,12,.78) 70%, var(--ink)),
-        url('https://img.youtube.com/vi/HdT9OQlxW9E/maxresdefault.jpg') center 38% / cover no-repeat;
+        url('https://img.youtube.com/vi/HdT9OQlxW9E/hqdefault.jpg') center 38% / cover no-repeat;
     }
     .hero-content { max-width: 850px; position: relative; }
     .eyebrow { color: #ffb267; text-transform: uppercase; letter-spacing: .3em; font: 700 .76rem/1.5 Arial, sans-serif; }
@@ -28,7 +28,9 @@
     h2 { font-size: clamp(1.8rem, 5vw, 3rem); margin: .4rem 0 1rem; }
     .intro p { color: #c9c0b8; font: 1rem/1.7 Arial, sans-serif; }
     .video-frame { width: 100%; aspect-ratio: 16 / 9; border: 1px solid #553222; box-shadow: 0 20px 70px #0009; }
-    .video-frame iframe { width: 100%; height: 100%; border: 0; }
+    .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .watch-link { text-align: center; margin: 1rem 0 0; font: .95rem/1.6 Arial, sans-serif; color: #c9c0b8; }
+    .watch-link a { color: #ffb267; }
     footer { border-top: 1px solid #332a27; padding: 1.5rem; text-align: center; color: #9c9189; font: .8rem Arial, sans-serif; }
   </style>
 </head>
@@ -48,8 +50,15 @@
       <p>Settle in, turn up the sound, and enjoy the video.</p>
     </section>
     <div class="video-frame">
-      <iframe src="https://www.youtube-nocookie.com/embed/HdT9OQlxW9E" title="Haddonfield Halloween video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/HdT9OQlxW9E?rel=0"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
     </div>
+    <p class="watch-link">If the video cannot play here, <a href="https://www.youtube.com/watch?v=HdT9OQlxW9E" target="_blank" rel="noopener noreferrer">watch it directly on YouTube</a>.</p>
   </main>
   <footer>Haddonfield Halloween</footer>
 </body>
