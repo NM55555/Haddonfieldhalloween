@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101014">
+  <meta name="description" content="Haddonfield Halloween — watch the featured video.">
+  <title>Haddonfield Halloween</title>
+  <style>
+    :root { color-scheme: dark; --orange: #f27b21; --ink: #101014; --paper: #f4eee6; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--ink); color: var(--paper); font-family: Georgia, 'Times New Roman', serif; }
+    .hero {
+      min-height: 78vh; position: relative; display: grid; place-items: center; overflow: hidden;
+      text-align: center; padding: 5rem 1.5rem;
+      background: linear-gradient(180deg, rgba(10,9,12,.28), rgba(10,9,12,.78) 70%, var(--ink)),
+        url('https://img.youtube.com/vi/HdT9OQlxW9E/maxresdefault.jpg') center 38% / cover no-repeat;
+    }
+    .hero-content { max-width: 850px; position: relative; }
+    .eyebrow { color: #ffb267; text-transform: uppercase; letter-spacing: .3em; font: 700 .76rem/1.5 Arial, sans-serif; }
+    h1 { font-size: clamp(3rem, 10vw, 7.5rem); line-height: .9; margin: 1.1rem 0; text-transform: uppercase; text-shadow: 0 4px 30px #000; }
+    .subtitle { font: 1.05rem/1.7 Arial, sans-serif; color: #eee1d4; }
+    .button { display: inline-block; margin-top: 1.4rem; padding: .9rem 1.4rem; border: 1px solid var(--orange); color: white; text-decoration: none; text-transform: uppercase; letter-spacing: .1em; font: 700 .8rem Arial, sans-serif; background: #d84c19; }
+    .button:hover { background: #f27b21; }
+    main { width: min(1050px, 92vw); margin: 0 auto; padding: 2rem 0 5rem; }
+    .intro { text-align: center; max-width: 700px; margin: 0 auto 2.2rem; }
+    h2 { font-size: clamp(1.8rem, 5vw, 3rem); margin: .4rem 0 1rem; }
+    .intro p { color: #c9c0b8; font: 1rem/1.7 Arial, sans-serif; }
+    .video-frame { width: 100%; aspect-ratio: 16 / 9; border: 1px solid #553222; box-shadow: 0 20px 70px #0009; }
+    .video-frame iframe { width: 100%; height: 100%; border: 0; }
+    footer { border-top: 1px solid #332a27; padding: 1.5rem; text-align: center; color: #9c9189; font: .8rem Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">A Halloween feature</div>
+      <h1>Haddonfield<br>Halloween</h1>
+      <p class="subtitle">Enter the night. Watch the featured video.</p>
+      <a class="button" href="#watch">Watch now</a>
+    </div>
+  </header>
+  <main id="watch">
+    <section class="intro">
+      <div class="eyebrow">Featured video</div>
+      <h2>Watch the film</h2>
+      <p>Settle in, turn up the sound, and enjoy the video.</p>
+    </section>
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/HdT9OQlxW9E" title="Haddonfield Halloween video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </main>
+  <footer>Haddonfield Halloween</footer>
+</body>
+</html>
