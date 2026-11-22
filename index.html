@@ -1,38 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101014">
-  <meta name="description" content="Haddonfield Halloween — open the featured YouTube video.">
   <title>Haddonfield Halloween</title>
   <style>
-    :root { color-scheme: dark; --orange: #f27b21; --ink: #101014; --paper: #f4eee6; }
-    * { box-sizing: border-box; }
-    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 1.25rem; background: radial-gradient(ellipse at center, #34211b 0, var(--ink) 70%); color: var(--paper); font-family: Georgia, 'Times New Roman', serif; }
-    .screen { width: min(1050px, 100%); }
-    .cover { position: relative; display: grid; place-items: center; min-height: min(72vh, 590px); overflow: hidden; text-align: center; border: 1px solid #704323; background: linear-gradient(180deg, #09080a44, #09080acc), url('https://img.youtube.com/vi/HdT9OQlxW9E/hqdefault.jpg') center / cover no-repeat; box-shadow: 0 25px 90px #000b; }
-    .cover-content { position: relative; max-width: 760px; padding: 2rem; }
-    .eyebrow { color: #ffb267; text-transform: uppercase; letter-spacing: .3em; font: 700 .76rem/1.5 Arial, sans-serif; }
-    h1 { margin: 1rem 0; font-size: clamp(2.8rem, 9vw, 6.8rem); line-height: .9; text-transform: uppercase; text-shadow: 0 4px 30px #000; }
-    .subtitle { color: #eee1d4; font: 1rem/1.6 Arial, sans-serif; }
-    .play-button { display: inline-flex; align-items: center; gap: .75rem; margin-top: 1.4rem; padding: 1rem 1.5rem; border: 0; border-radius: 3px; background: #d84c19; color: white; text-decoration: none; text-transform: uppercase; letter-spacing: .12em; font: 700 .9rem Arial, sans-serif; }
-    .play-button:hover, .play-button:focus-visible { background: var(--orange); }
-    .play-icon { font-size: 1.2rem; }
-    footer { padding: 1.25rem 0 0; text-align: center; color: #9c9189; font: .75rem Arial, sans-serif; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+    }
+
+    #cover {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      background: #000 url("https://i.ytimg.com/vi/HdT9OQlxW9E/maxresdefault.jpg") center / cover no-repeat;
+    }
+
+    #play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 90px;
+      height: 62px;
+      transform: translate(-50%, -50%);
+      border: 0;
+      border-radius: 16px;
+      background: #ff0000;
+      cursor: pointer;
+    }
+
+    #play::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-42%, -50%);
+      border-style: solid;
+      border-width: 16px 0 16px 28px;
+      border-color: transparent transparent transparent #fff;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 <body>
-  <main class="screen">
-    <section class="cover" aria-label="Haddonfield Halloween video cover">
-      <div class="cover-content">
-        <div class="eyebrow">A Halloween feature</div>
-        <h1>Haddonfield<br>Halloween</h1>
-        <p class="subtitle">Press play to open the video on YouTube.</p>
-        <a class="play-button" href="https://www.youtube.com/watch?v=HdT9OQlxW9E" target="_blank" rel="noopener noreferrer"><span class="play-icon" aria-hidden="true">▶</span> Play video</a>
-      </div>
-    </section>
-    <footer>Haddonfield Halloween</footer>
-  </main>
+  <div id="cover" role="button" tabindex="0" aria-label="Play Haddonfield Halloween">
+    <button id="play" aria-label="Play video"></button>
+  </div>
+
+  <script>
+    const cover = document.getElementById("cover");
+
+    function playVideo() {
+      cover.outerHTML = `
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/HdT9OQlxW9E?autoplay=1"
+          title="Haddonfield Halloween"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>`;
+    }
+
+    cover.addEventListener("click", playVideo);
+    cover.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventEvent();
+        playVideo();
+      }
+    });
+  </script>
 </body>
 </html>
